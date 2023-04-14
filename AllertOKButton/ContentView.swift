@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var isError: Bool = false
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        Button("Alertテスト") {
+        isError = true
         }
-        .padding()
+        .alert(isPresented: $isError) {
+            Alert(title: Text("タイトル"),message: Text("メッセージ文"),dismissButton: .default(Text("OK"),action: {}))
+        }
     }
 }
 
